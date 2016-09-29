@@ -5,8 +5,9 @@ import datetime  # for unix UTC conversion
 # COMPLEX WEATHER
 def fullData():
     # GET URL AND ENTER KEYS
+    key = input('Enter your API key: ')
     location = input('Enter the location to search: ')
-    url = 'http://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=fd43268f762c44ef6594eb917d69d0fd'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + key
 
     # LOAD DATA
     r = requests.get(url)
@@ -57,9 +58,10 @@ def fullData():
     print(datetime.datetime.fromtimestamp(int(sunset)).strftime('%H:%M:%S:%A'))
 
 def forcastDays():
+    key = input('Enter your API key: ')
     location = input('Enter the location to search: ')
 
-    url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + location + '&cnt=5&mode=json&appid=fd43268f762c44ef6594eb917d69d0fd'
+    url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + location + '&cnt=5&mode=json&appid=' + key
     days = int(input('How many days to forcast? (max. 16): '))
 
     # LOAD DATA
